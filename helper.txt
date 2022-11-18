@@ -6,3 +6,9 @@ git rm --cached index.html - удаляем файл из будущего ко�
 
 git config --global user.email "urxednay.9@gmail.com"
 git config --global user.name "semen1994i"
+git branch - просмотр, в какой ветке мы находимся
+git branch readme - создали новую ветку с названием readme
+git checkout readme - перешли на ветку readme
+git checkout -b new - перешли и создали сразу новую ветку
+git branch -D new - удалили ветку new
+
