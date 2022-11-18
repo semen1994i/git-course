@@ -4,3 +4,5 @@ git add index.html - добавили новый файл в будущий ко
 git add . - добавить все файлы
 git rm --cached index.html - удаляем файл из будущего коммита
 
+git config --global user.email "urxednay.9@gmail.com"
+git config --global user.name "semen1994i"
