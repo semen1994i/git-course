@@ -13,6 +13,10 @@ git checkout -b new - перешли и создали сразу новую в�
 git branch -D new - удалили ветку new
 git merge readme - соединили master с branch
 
+git commit -m "last change in helper.txt" - коммитим
+
+
 git remote add origin https://github.com/semen1994i/git-course.git - заливаем на Git
 git push -u origin main
 git pull - скачали все обновления, которые появились в проекте, но их нет у нас на локалке
+
