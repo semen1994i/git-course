@@ -11,4 +11,8 @@ git branch readme - создали новую ветку с названием r
 git checkout readme - перешли на ветку readme
 git checkout -b new - перешли и создали сразу новую ветку
 git branch -D new - удалили ветку new
+git merge readme - соединили master с branch
+
+git remote add origin https://github.com/semen1994i/git-course.git - заливаем на Git
+git push -u origin main
 
