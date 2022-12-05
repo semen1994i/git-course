@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "PROVERKA"
 changedBranch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
-blockedUsers=(junior1 junior2 simon semen1994i)
+blockedUsers=(semen1994i vanya petya)
 
-if [[ ${blockedUsers[*]} =~ $USER ]]; then
+if [[ ${blockedUsers[*]} =~ $(git config user.name) ]]; then
     if [ $changedBranch == "master" ]; then
         echo "You are not allowed commit changes in this branch"
         exit 1
     fi
 fi
+
