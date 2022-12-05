@@ -1,12 +1,14 @@
-#!/bin/bash
 
-changedBranch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
-blockedUsers=(semen1994i vanya petya)
 
-if [[ ${blockedUsers[*]} =~ $(git config user.name) ]]; then
-    if [ $changedBranch == "master" ]; then
-        echo "You are not allowed commit changes in this branch"
-        exit 1
-    fi
-fi
+#!/usr/bin/env python
+
+import sys
+import fileinput
+
+# Read in each ref that the user is trying to update
+for line in fileinput.input():
+    print "pre-receive: Trying to push ref: %s" % line
+
+# Abort the push
+# sys.exit(1)
 
