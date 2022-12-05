@@ -1,0 +1,32 @@
+#!/bin/sh
+
+result=0
+# check php/ruby syntax
+while read FILE; do
+    # check that file not removed(also can be implemented using --diff-filter)
+    if [[ -f $FILE ]]; then
+        if [[ "$FILE" =~ ^.+(php|html)$ ]]; then
+            php -l "$FILE"
+            if [ $? -ne 0 ]; then
+                result=1
+            fi
+        elif [[ "$FILE" =~ ^.+(rb)$ ]]; then
+            ruby -c "$FILE"
+            if [ $? -ne 0 ]; then
+                result=1
+            fi
+        elif [[ "$FILE" =~ ^.+(go)$ ]]; then
+            gofmt -l -e "$FILE"
+            if [ $? -ne 0 ]; then
+                result=1
+            fi
+        fi
+    fi
+done <<EOT
+    $(git diff --cached --name-only)
+EOT
+
+if [ $result -ne 0 ]; then
+    echo "Aborting commit due to files with syntax errors" >&2
+    exit $result
+fi
